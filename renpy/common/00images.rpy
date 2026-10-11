@@ -57,10 +57,9 @@ init -1900 python:
                 if not ext.lower() in config.image_extensions:
                     continue
 
-                base = base.lower()
-                base, _, oversampled = base.partition("@")
+                base = base.lower().partition("@")[2]
 
-                if oversampled:
+                if "@" in fn:
                     oversampled_images.append((base, fn))
                 else:
                     non_oversampled_images.append((base, fn))
